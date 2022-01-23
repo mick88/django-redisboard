@@ -33,4 +33,5 @@ jobs:
         pip install pytest pytest-travis-fold pytest-cov pytest-django process-tests requests psutil
     - name: Test
       run: |
+        python ci/bootstrap.py --no-env
         pytest --cov --cov-report=term-missing -vv --ignore=src
