@@ -24,6 +24,8 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install with django ${{ matrix.django-version }}
+      env:
+        DJANGO_SETTINGS_MODULE: test_project.settings
       run: |
         pip install -r ci/requirements.txt
         pip install .
