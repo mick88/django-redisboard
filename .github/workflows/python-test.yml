@@ -33,7 +33,7 @@ jobs:
     - name: Test
       env:
         DJANGO_SETTINGS_MODULE: test_project.settings
-        PYTHONPATH: ${PWD}/tests
+        PYTHONPATH: ./tests
       run: |
         python ci/bootstrap.py --no-env
         pytest --cov --cov-report=term-missing -vv --ignore=src
