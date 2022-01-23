@@ -24,8 +24,6 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install with django ${{ matrix.django-version }}
-      env:
-        DJANGO_SETTINGS_MODULE: test_project.settings
       run: |
         pip install -r ci/requirements.txt
         pip install .
@@ -33,6 +31,8 @@ jobs:
         pip install pytest pytest-travis-fold pytest-cov pytest-django process-tests requests psutil jinja2 matrix
 
     - name: Test
+      env:
+        DJANGO_SETTINGS_MODULE: test_project.settings
       run: |
         python ci/bootstrap.py --no-env
         pytest --cov --cov-report=term-missing -vv --ignore=src
