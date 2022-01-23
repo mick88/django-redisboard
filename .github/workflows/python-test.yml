@@ -28,7 +28,7 @@ jobs:
         pip install -r ci/requirements.txt
         pip install .
         pip install django==${{ matrix.django-version }}
-        pip install pytest pytest-travis-fold pytest-cov pytest-django process-tests requests
+        pip install pytest pytest-travis-fold pytest-cov pytest-django process-tests requests psutil
     - name: Test
       run: |
         pytest --cov --cov-report=term-missing -vv --ignore=src
